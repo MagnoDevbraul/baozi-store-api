@@ -20,4 +20,23 @@ public class Produto {
     @Column(nullable = false)
     private Boolean estoque;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Produto(Long id) {
+        this.id = id;
+    }
 }
