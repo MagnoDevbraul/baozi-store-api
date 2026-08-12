@@ -25,4 +25,9 @@ public class ProdutoController {
     public List<Produto> listarTodos() {
         return produtoService.listarTodos();
     }
+
+    @GetMapping("/{id}")
+    public Produto buscarPorId(@PathVariable Long id) {
+        return produtoService.buscarPorId(id);
+    }
 }

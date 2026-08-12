@@ -25,4 +25,9 @@ public class ClienteController {
     public List<Cliente> listar() {
         return clienteService.listarTodos();
     }
+
+    @GetMapping("/{id}")
+    public Cliente buscarporId(@PathVariable Long id) {
+        return clienteService.buscarPorId(id);
+    }
 }

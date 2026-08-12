@@ -2,6 +2,7 @@ package br.com.amw.baozistore.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "clientes")
@@ -13,6 +14,7 @@ public class Cliente {
 
     private String nome;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate clienteDesde;
 
     public Cliente() {

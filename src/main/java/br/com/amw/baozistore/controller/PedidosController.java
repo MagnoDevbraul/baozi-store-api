@@ -8,11 +8,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pedidos")
-public class PedidoController {
+public class PedidosController {
 
     private final PedidoService pedidoService;
 
-    public PedidoController(PedidoService pedidoService) {
+    public PedidosController(PedidoService pedidoService) {
         this.pedidoService = pedidoService;
     }
 
@@ -23,6 +23,12 @@ public class PedidoController {
 
     @GetMapping
     public List<Pedido>listarTodos(){
+
         return pedidoService.listarTodos();
+    }
+
+    @GetMapping("/{id}")
+    public Pedido buscarPorId(@PathVariable Long id) {
+        return pedidoService.buscarPorId(id);
     }
 }

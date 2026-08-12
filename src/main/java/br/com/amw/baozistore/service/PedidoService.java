@@ -15,10 +15,17 @@ public class PedidoService {
     }
 
     public Pedido salvar(Pedido pedido) {
+
         return pedidoRepository.save(pedido);
     }
 
     public List<Pedido> listarTodos() {
+
         return pedidoRepository.findAll();
+    }
+
+    public Pedido buscarPorId(Long id) {
+        return pedidoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Pedido não encontrado."));
     }
 }

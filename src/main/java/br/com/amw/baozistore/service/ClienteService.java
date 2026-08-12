@@ -25,4 +25,9 @@ public class ClienteService {
     public List<Cliente> listarTodos() {
         return clienteRepository.findAll();
     }
+
+    public Cliente buscarPorId(Long id) {
+        return clienteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado."));
+    }
 }

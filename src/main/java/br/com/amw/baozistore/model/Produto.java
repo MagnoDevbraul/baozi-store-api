@@ -20,6 +20,13 @@ public class Produto {
     @Column(nullable = false)
     private Boolean estoque;
 
+    public Produto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -28,15 +35,19 @@ public class Produto {
         this.nome = nome;
     }
 
-    public Long getId() {
-        return id;
+    public BigDecimal getPreco() {
+        return preco;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
     }
 
-    public Produto(Long id) {
-        this.id = id;
+    public Boolean getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Boolean estoque) {
+        this.estoque = estoque;
     }
 }
