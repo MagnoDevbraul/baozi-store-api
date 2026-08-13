@@ -38,22 +38,27 @@ public class Pedido {
     }
 
     public void setId(Long id) {
+
         this.id = id;
     }
 
     public Cliente getCliente() {
+
         return cliente;
     }
 
     public void setCliente(Cliente cliente) {
+
         this.cliente = cliente;
     }
 
     public Produto getProduto() {
+
         return produto;
     }
 
     public void setProduto(Produto produto) {
+
         this.produto = produto;
     }
 
@@ -66,6 +71,7 @@ public class Pedido {
     }
 
     public LocalDateTime getDataPedido() {
+
         return dataPedido;
     }
 

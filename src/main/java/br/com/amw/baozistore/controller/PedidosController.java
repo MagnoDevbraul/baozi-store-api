@@ -13,11 +13,13 @@ public class PedidosController {
     private final PedidoService pedidoService;
 
     public PedidosController(PedidoService pedidoService) {
+
         this.pedidoService = pedidoService;
     }
 
     @PostMapping
     public Pedido salvar(@RequestBody Pedido pedido) {
+
         return pedidoService.salvar(pedido);
     }
 
@@ -29,6 +31,20 @@ public class PedidosController {
 
     @GetMapping("/{id}")
     public Pedido buscarPorId(@PathVariable Long id) {
+
         return pedidoService.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    public Pedido atualizar(
+            @PathVariable Long id,
+            @RequestBody Pedido pedido) {
+
+        return pedidoService.atualizar(id, pedido);
+    }
+
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) {
+        pedidoService.excluir(id);
     }
 }

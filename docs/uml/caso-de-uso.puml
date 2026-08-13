@@ -1,0 +1,44 @@
+
+@startuml
+
+title Diagrama de Caso de Uso - Baozi Store API
+
+' Projeto: Baozi Store API
+' Aluno: Magno
+' RU: 4758995
+
+left to right direction
+
+actor "Usuário" as usuario
+actor "Administrador" as administrador
+
+administrador --|> usuario
+
+rectangle "Baozi Store API" {
+
+    usecase "Listar Produtos" as UC01
+    usecase "Consultar Produto\npor ID" as UC02
+
+    usecase "Criar Pedido" as UC03
+    usecase "Listar Pedidos" as UC04
+    usecase "Consultar Pedido\npor ID" as UC05
+
+    usecase "Criar Cliente" as UC06
+    usecase "Listar Clientes" as UC07
+    usecase "Consultar Cliente\npor ID" as UC08
+
+    usecase "Criar Produto" as UC09
+}
+
+usuario --> UC01
+usuario --> UC02
+usuario --> UC03
+usuario --> UC04
+usuario --> UC05
+
+administrador --> UC06
+administrador --> UC07
+administrador --> UC08
+administrador --> UC09
+
+@enduml
