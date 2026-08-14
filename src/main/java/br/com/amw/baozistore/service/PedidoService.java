@@ -18,6 +18,7 @@ public class PedidoService {
     }
 
     public Pedido salvar(Pedido pedido) {
+        pedido.setDataPedido(java.time.LocalDateTime.now());
         return pedidoRepository.save(pedido);
     }
 
