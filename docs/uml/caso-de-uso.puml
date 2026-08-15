@@ -1,44 +1,58 @@
-
 @startuml
 
-title Diagrama de Caso de Uso - Baozi Store API
-
-' Projeto: Baozi Store API
-' Aluno: Magno
-' RU: 4758995
+title Baozi Store API - Diagrama de Caso de Uso\nMagno Ferreira4758995
 
 left to right direction
 
-actor "Usuário" as usuario
-actor "Administrador" as administrador
-
-administrador --|> usuario
+actor "Usuário da API" as Usuario
 
 rectangle "Baozi Store API" {
 
-    usecase "Listar Produtos" as UC01
-    usecase "Consultar Produto\npor ID" as UC02
+    rectangle "CLIENTE" as Cliente {
+        usecase "Criar Cliente" as C1
+        usecase "Listar Clientes" as C2
+        usecase "Consultar Cliente por ID" as C3
+        usecase "Atualizar Cliente" as C4
+        usecase "Excluir Cliente" as C5
+    }
 
-    usecase "Criar Pedido" as UC03
-    usecase "Listar Pedidos" as UC04
-    usecase "Consultar Pedido\npor ID" as UC05
+    rectangle "PRODUTO" as Produto {
+        usecase "Criar Produto" as P1
+        usecase "Listar Produtos" as P2
+        usecase "Consultar Produto por ID" as P3
+        usecase "Atualizar Produto" as P4
+        usecase "Excluir Produto" as P5
+    }
 
-    usecase "Criar Cliente" as UC06
-    usecase "Listar Clientes" as UC07
-    usecase "Consultar Cliente\npor ID" as UC08
-
-    usecase "Criar Produto" as UC09
+    rectangle "PEDIDO" as Pedido {
+        usecase "Criar Pedido" as PD1
+        usecase "Listar Pedidos" as PD2
+        usecase "Consultar Pedido por ID" as PD3
+        usecase "Atualizar Pedido" as PD4
+        usecase "Excluir Pedido" as PD5
+    }
 }
 
-usuario --> UC01
-usuario --> UC02
-usuario --> UC03
-usuario --> UC04
-usuario --> UC05
+' ==========================
+' RELACIONAMENTOS
+' ==========================
 
-administrador --> UC06
-administrador --> UC07
-administrador --> UC08
-administrador --> UC09
+Usuario --> C1
+Usuario --> C2
+Usuario --> C3
+Usuario --> C4
+Usuario --> C5
+
+Usuario --> P1
+Usuario --> P2
+Usuario --> P3
+Usuario --> P4
+Usuario --> P5
+
+Usuario --> PD1
+Usuario --> PD2
+Usuario --> PD3
+Usuario --> PD4
+Usuario --> PD5
 
 @enduml
