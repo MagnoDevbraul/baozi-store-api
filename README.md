@@ -14,10 +14,10 @@
 ##  Sobre o Projeto
 
 O **Baozi Store API** é uma aplicação Back-End desenvolvida em Java com Spring Boot para o 
-gerenciamento completo de um e-commerce (Clientes, Produtos e Pedidos).
+gerenciamento de Clientes, Produtos e Pedidos de um e-commerce.
 
 O projeto foi construído aplicando arquitetura em camadas, persistência de dados relacional com 
-PostgreSQL, validações de regras de negócio, tratamento de exceções HTTP e controle de versão.
+PostgreSQL, regras de negócio, operações CRUD e controle de versão.
 
 ---
 
@@ -33,7 +33,7 @@ PostgreSQL, validações de regras de negócio, tratamento de exceções HTTP e 
 
 ---
 
-##  Arquitetura do Sistema
+#  Arquitetura do Sistema
 
 A aplicação segue a organização padrão de mercado em camadas bem definidas:
 
@@ -65,7 +65,7 @@ Responsável pelas regras e operações relacionadas às entidades.
 
 ### Cliente
 
-    Representa os clientes cadastrados na loja.
+Representa os clientes cadastrados na loja.
 
 
 |Campo	|  Tipo  |
@@ -102,10 +102,11 @@ Representa os pedidos realizados pelos clientes.
 O pedido possui relacionamento com as entidades Cliente e Produto.
 
 ---
-## Endpoints
-### Clientes
-Criar cliente
-POST /clientes
+# Endpoints
+## Clientes
+### Criar cliente
+
+- POST /clientes
 
 Exemplo de requisição:
 
@@ -116,43 +117,47 @@ Exemplo de requisição:
 }
 ```
 
-### Listar clientes
-GET /clientes
-Consultar cliente por ID
-GET /clientes/{id}
+# Listar clientes
+## GET /clientes
+### Consultar cliente por ID
+
+- GET /clientes/{id}
 
 
 Exemplo:
 
-### GET /clientes/1
-Atualizar cliente
-PUT /clientes/{id}
+## GET /clientes
+### Atualizar cliente
+
+- PUT /clientes/{id}
 
 Exemplo:
 
-```{
+```
+{
 "nome": "João da Silva Atualizado",
 "clienteDesde": "2026-08-08"
 }
 ```
 ---
 ### Excluir cliente
-DELETE /clientes/{id}
+### DELETE /clientes/{id}
 
 Exemplo:
 
-DELETE /clientes/4
+- DELETE /clientes/{id}
 
 Após a exclusão, uma nova consulta pelo ID retorna 404 Not Found quando o cliente não está mais 
 cadastrado.
 ---
 ## Produtos
 ### Criar produto
-POST /produtos
+- POST /produtos
 
 Exemplo:
 
-```{
+```
+{
 "nome": "Camiseta Baozi",
 "preco": 64.90,
 "estoque": true
@@ -161,32 +166,37 @@ Exemplo:
 ---
 ## Listar produtos
 ### GET /produtos
-Consultar produto por ID
-GET /produtos/{id} 
+*Consultar produto por ID*
+
+- GET /produtos/{id} 
 
 
 Exemplo:
 
-GET /produtos/7
-Atualizar produto
-PUT /produtos/{id}
+- GET /produtos/{id}
+
+### Atualizar produto
+
+- PUT /produtos/{id}
 
 Exemplo:
 
-```{
+```
+{
 "nome": "Camiseta Baozi Atualizada",
 "preco": 64.90,
 "estoque": true
 }
 ```
 ---
-### Excluir produto
-DELETE /produtos/{id}
+## Excluir produto
+### DELETE /produtos/{id}
 
 Exemplo:
 
-DELETE /produtos/8
-Observação sobre exclusão de produtos
+- DELETE /produtos/{id}
+
+*Observação sobre exclusão de produtos*
 
 Um produto que esteja sendo referenciado por um pedido não pode ser excluído diretamente devido à 
 restrição de chave estrangeira existente no banco de dados.
@@ -196,11 +206,12 @@ Essa proteção impede que um pedido fique associado a um produto inexistente.
 ---
 ## Pedidos
 ### Criar pedido
-POST /pedidos
+- POST /pedidos
 
 Exemplo:
 
-```{
+```
+{
 "cliente": {
 "id": 1
 },
@@ -215,18 +226,22 @@ Exemplo:
 
 ## Listar pedidos
 ### GET /pedidos
-Consultar pedido por ID
-GET /pedidos/{id}
+*Consultar pedido por ID*
+
+- GET /pedidos/{id}
 
 Exemplo:
 
-GET /pedidos/10
-Atualizar pedido
-PUT /pedidos/{id}
+- GET /pedidos/{id}
+
+*Atualizar pedido*
+
+- PUT /pedidos/{id}
 
 Exemplo:
 
-```{
+```
+{
 "cliente": {
 "id": 1
 },
@@ -243,7 +258,7 @@ Exemplo:
 
 Exemplo:
 
-DELETE /pedidos/10
+- DELETE /pedidos/{id}
 
 Após a exclusão, uma nova consulta pelo ID retorna 404 Not Found quando o pedido não 
 está mais cadastrado.
@@ -258,7 +273,8 @@ Banco utilizado durante o desenvolvimento:
 baozi_store
 
 Configuração utilizada pela aplicação:
-```properties
+```
+properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/baozi_store
 spring.datasource.username=${DB_USERNAME}
 spring.datasource.password=${DB_PASSWORD}
@@ -366,7 +382,7 @@ As operações foram verificadas por meio dos códigos de resposta HTTP retornad
 ---
 ## Diagrama de Caso de Uso
 
-O projeto possui um diagrama de caso de uso desenvolvido em PlantUML.
+O projeto possui um diagrama de caso de uso desenvolvido em **PlantUML.**
 
 Arquivo:
 ```
@@ -377,7 +393,7 @@ O diagrama representa as principais operações disponíveis para o usuário da 
 * Gerenciar clientes
 * Gerenciar produtos
 * Gerenciar pedidos
-* Versionamento
+
 
 O projeto utiliza Git para controle de versão e GitHub para armazenamento remoto do código-fonte.
 
@@ -386,9 +402,6 @@ O projeto utiliza Git para controle de versão e GitHub para armazenamento remot
 
 https://github.com/MagnoDevbraul/baozi-store-api
 
-spring.datasource.username=${DB_USERNAME}
-spring.datasource.password=${DB_PASSWORD}
-Segurança das credenciais)
 
 O histórico de commits registra a evolução do desenvolvimento da aplicação, incluindo implementação 
 das funcionalidades, correções, testes e documentação.
