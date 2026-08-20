@@ -3,18 +3,22 @@ package br.com.amw.baozistore.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+// Entidade JPA que mapeia a tabela de pedidos no banco de dados
 @Entity
 @Table(name = "pedidos")
 public class Pedido {
 
+    // Chave primária com auto-incremento
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Relacionamento muitos-para-um com Cliente (FK: cliente_id)
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
+    // Relacionamento muitos-para-um com Produto (FK: produto_id)
     @ManyToOne
     @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
@@ -32,7 +36,6 @@ public class Pedido {
 
 
     // Getters e Setters
-
     public Long getId() {
         return id;
     }

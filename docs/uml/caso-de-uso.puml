@@ -1,13 +1,29 @@
 @startuml
 
-title Baozi Store API - Diagrama de Caso de Uso\nMagno Ferreira4758995
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+' ATIVIDADE PRÁTICA DE DESENVOLVIMENTO WEB BACK-END - UNINTER
+' Sistema: Baozi Store API
+' Autor: Magno Walério Alves Ferreira
+' RU: 4758995
+' Descrição: Diagrama de Casos de Uso detalhando as interações do ator do sistema
+'            com os endpoints dos recursos (Cliente, Produto e Pedido).
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+' Definição do título no diagrama
+title Baozi Store API - Diagrama de Caso de Uso\nMagno Ferreira - 4758995
+
+' Orientação do layout do diagrama (da esquerda p/ direita)
 left to right direction
 
+' Ator principal interagindo com as rotas REST da aplicação
 actor "Usuário da API" as Usuario
 
+' Limite do sistema
 rectangle "Baozi Store API" {
 
+    ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ' Módulo - Cliente
+    ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     rectangle "CLIENTE" as Cliente {
         usecase "Criar Cliente" as C1
         usecase "Listar Clientes" as C2
@@ -16,6 +32,9 @@ rectangle "Baozi Store API" {
         usecase "Excluir Cliente" as C5
     }
 
+    ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ' Módulo - Produtos
+    ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     rectangle "PRODUTO" as Produto {
         usecase "Criar Produto" as P1
         usecase "Listar Produtos" as P2
@@ -24,6 +43,9 @@ rectangle "Baozi Store API" {
         usecase "Excluir Produto" as P5
     }
 
+    ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ' Módulo - Pedidos
+    ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     rectangle "PEDIDO" as Pedido {
         usecase "Criar Pedido" as PD1
         usecase "Listar Pedidos" as PD2
@@ -33,22 +55,26 @@ rectangle "Baozi Store API" {
     }
 }
 
-' ==========================
-' RELACIONAMENTOS
-' ==========================
 
+' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+' Relacionamentos/Associações
+' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+' Integrações dos endpoints de Clientes
 Usuario --> C1
 Usuario --> C2
 Usuario --> C3
 Usuario --> C4
 Usuario --> C5
 
+' Integrações dos endpoints de Produtos
 Usuario --> P1
 Usuario --> P2
 Usuario --> P3
 Usuario --> P4
 Usuario --> P5
 
+' Integrações dos endpoints de Pedidos
 Usuario --> PD1
 Usuario --> PD2
 Usuario --> PD3
